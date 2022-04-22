@@ -1,5 +1,5 @@
-baseURL = "/"
-title = "Kubeflow on AWS [STAGING]"
+baseURL = "https://awslabs.github.io/kubeflow-manifests/"
+title = "Kubeflow on AWS"
 description = "Kubeflow makes deployment of ML Workflows on Kubernetes straightforward and automated"
 
 enableRobotsTXT = true
@@ -29,7 +29,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     name = "Documentation"
     weight = -101
     pre = "<i class='fas fa-book pr-2'></i>"
-    url = "/docs/"
+    url = "./docs/"
   [[menu.main]]
     name = "GitHub"
     weight = -99
@@ -106,7 +106,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 
   # A link to latest version of the docs. Used in the "version-banner" partial to
   # point people to the main doc site.
-  url_latest_version = "/docs"
+  url_latest_version = "https://awslabs.github.io/kubeflow-manifests/docs"
 
   # A variable used in various docs to determine URLs for config files etc.
   # To find occurrences, search the repo for 'params "githubbranch"'.
