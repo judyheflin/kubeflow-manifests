@@ -16,13 +16,9 @@ Refer to the following guide to connect to Kubeflow Pipelines from [outside your
 
 Refer to the following steps to use `kfp` to pass a cookie from your browser after you log into Kubeflow. The following example uses a Chrome browser.
 
-<img src="images/kfp-sdk-browser-cookie.png"
-  alt="KFP SDK Browser Cookie"
-  class="mt-3 mb-3 border border-info rounded">
+![](https://raw.githubusercontent.com/awslabs/kubeflow-manifests/d1c113ea2d6dc584ce3d0fcb301a92a90dac762a/docs/component-guides/images/kfp-sdk-browser-cookie.png)
 
-<img src="images/kfp-sdk-browser-cookie-detail.png"
-  alt="KFP SDK Browser Cookie Detail"
-  class="mt-3 mb-3 border border-info rounded">
+![](https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/docs/component-guides/images/kfp-sdk-browser-cookie-detail.png)  
 
 Once you get a cookie, authenticate `kfp` by passing the cookie from your browser. Use the session based on the appropriate manifest for your deployment, as done in the following examples. 
 
@@ -47,7 +43,7 @@ client = kfp.Client(host=f"http://{kubeflow_gateway_endpoint}/pipeline", cookies
 client.list_experiments(namespace=namespace)
 ```
 
-If you want to set up application load balancing (ALB) with Dex, see the [Load Balancer](/docs/deployment/add-ons/load-balancer/guide/) and use the ALB address as the Kubeflow Endpoint.
+If you want to set up application load balancing (ALB) with Dex, see the [Load Balancer](/kubeflow-manifests/docs/deployment/add-ons/load-balancer/guide/) and use the ALB address as the Kubeflow Endpoint.
 
 To do programmatic authentication with Dex, refer to the following comments under [issue #140](https://github.com/kubeflow/kfctl/issues/140) in the `kfctl` repository: [#140 (comment)](https://github.com/kubeflow/kfctl/issues/140#issuecomment-578837304) and [#140 (comment)](https://github.com/kubeflow/kfctl/issues/140#issuecomment-719894529).
 
