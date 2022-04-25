@@ -45,7 +45,7 @@ From this point onwards, we will be creating/updating the DNS records **only in 
 1. Add a custom domain to the user pool. In order to add a custom domain to your user pool, you need specify a domain name, and provide a certificate managed with AWS Certificate Manager (ACM).
     1. In order to use a custom domain, its root(i.e. `platform.example.com`) must have an valid A type record. Create a new record of type `A` in `platform.example.com` hosted zone with an arbitrary IP for now. Once we have ALB created, we will update this value.
         1. Following is a screenshot of `platform.example.com` hosted zone. A record is shown. 
-            1. ![subdomain-initial-A-record](https://github.com/awslabs/kubeflow-manifests/blob/main/docs/deployment/cognito/images/subdomain-initial-A-record.png)
+            1. ![subdomain-initial-A-record](https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/docs/deployment/cognito/images/subdomain-initial-A-record.png)
     1. If your cluster is not in N.Virginia(us-east-1), create an ACM certificate in us-east-1 for `*.platform.example.com` by following the process similar to [section 2.0](./kubeflow-manifests/docs/deployment/add-ons/load-balancer/guide/#create-certificates-for-domain). That is because [Cognito requires](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html) a certificate in N.Virginia in order to have a custom domain for a user pool.
     1. In the `Domain name` choose `Use your domain`, type `auth.platform.example.com` and select the `*.platform.example.com` AWS managed certificate you’ve created in N.Virginia. Creating domain takes up to 15 mins.
         1. ![cognito-active-domain](https://raw.githubusercontent.com/awslabs/kubeflow-manifests/d1c113ea2d6dc584ce3d0fcb301a92a90dac762a/docs/deployment/cognito/images/cognito-active-domain.png)
@@ -60,7 +60,7 @@ From this point onwards, we will be creating/updating the DNS records **only in 
 
 ## 3.0 Configure Ingress
 
-1. Take note of the following values from the previous step or `awsconfigs/infra_configs/scripts/config.yaml` if you used automated guide(https://github.com/awslabs/kubeflow-manifests/blob/main/docs/deployment/cognito/README-automated.md):
+1. Take note of the following values from the previous step or `awsconfigs/infra_configs/scripts/config.yaml` if you used the [automated guide](https://github.com/awslabs/kubeflow-manifests/blob/main/docs/deployment/cognito/README-automated.md):
     1. The Pool ARN of the user pool found in Cognito general settings.
     1. The App client id, found in Cognito App clients.
     1. The custom user pool domain (e.g. `auth.platform.example.com`), found in the Cognito domain name.
