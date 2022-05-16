@@ -16,9 +16,9 @@ Refer to the following guide to connect to Kubeflow Pipelines from [outside your
 
 Refer to the following steps to use `kfp` to pass a cookie from your browser after you log into Kubeflow. The following example uses a Chrome browser.
 
-![](https://raw.githubusercontent.com/awslabs/kubeflow-manifests/d1c113ea2d6dc584ce3d0fcb301a92a90dac762a/docs/component-guides/images/kfp-sdk-browser-cookie.png)
+![](https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/pipelines/kfp-sdk-browser-cookie.png)
 
-![](https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/docs/component-guides/images/kfp-sdk-browser-cookie-detail.png)  
+![](https://raw.githubusercontent.com/awslabs/kubeflow-manifests/main/website/content/en/docs/images/pipelines/kfp-sdk-browser-cookie-detail.png)  
 
 Once you get a cookie, authenticate `kfp` by passing the cookie from your browser. Use the session based on the appropriate manifest for your deployment, as done in the following examples. 
 
