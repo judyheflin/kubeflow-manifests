@@ -71,7 +71,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 # Docsy - Site Parameters
 ###############################################################################
 [params]
-  github_repo = "https://github.com/awslabs/kubeflow-manifests/website"
+  github_repo = "https://github.com/awslabs/kubeflow-manifests/"
+  github_subdir = "website"
   github_project_repo = "https://github.com/awslabs/kubeflow-manifests"
 
   RSSLink = "/index.xml"
@@ -107,7 +108,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     githubbranch = "main"
     url = "https://awslabs.github.io/kubeflow-manifests/docs"
   [[params.versions]]
-    version = "v1.5"
+    version = "1.5"
     githubbranch = "main"
     url = "https://awslabs.github.io/kubeflow-manifests/docs"
 
