@@ -1,0 +1,82 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubeflow on AWS – Deployment Options</title>
+    <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/</link>
+    <description>Recent content in Deployment Options on Kubeflow on AWS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Prerequisites</title>
+      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Vanilla Installation</title>
+      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: RDS and S3</title>
+      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/rds-s3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/rds-s3/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Cognito</title>
+      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Cognito, RDS, and S3</title>
+      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito-rds-s3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/cognito-rds-s3/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

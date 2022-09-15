@@ -1,0 +1,341 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubeflow on AWS – Vanilla Installation</title>
+    <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/</link>
+    <description>Recent content in Vanilla Installation on Kubeflow on AWS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Automated Deployment Guide</title>
+      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide-automated/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide-automated/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide describes how to deploy the vanilla distribution of Kubeflow on AWS using automated setup. This vanilla version has minimal changes to the upstream Kubeflow manifests.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Be sure that you have satisfied the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/automated/&#34;&gt;installation prerequisites&lt;/a&gt; before working through this guide.&lt;/p&gt;
+&lt;h2 id=&#34;deploy-credentials&#34;&gt;Deploy credentials&lt;/h2&gt;
+&lt;p&gt;[TODO @akartsky ]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;AWS_SESSION_TOKEN&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;clone-the-repository&#34;&gt;Clone the repository&lt;/h2&gt;
+&lt;p&gt;[TODO @akartsky]&lt;/p&gt;
+&lt;h2 id=&#34;run-make-commands&#34;&gt;Run &lt;code&gt;make&lt;/code&gt; commands&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CLUSTER_NAME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;CLUSTER_REGION&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make install-all-prerequisites
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make deploy-kf-vanilla
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;connect-to-the-kubeflow-ui&#34;&gt;Connect to the Kubeflow UI&lt;/h2&gt;
+&lt;p&gt;Connect to the Kubeflow UI. Follow the steps relevant to the type of &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/automated/#create-a-ubuntu-environment.md&#34;&gt;Ubuntu environment&lt;/a&gt; you are working in.&lt;/p&gt;
+&lt;h3 id=&#34;amazon-ec2&#34;&gt;Amazon EC2&lt;/h3&gt;
+&lt;p&gt;Run the following command on your EC2 instance:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make port-forward
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, run the following command on your local machine:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;* ssh -i &amp;lt;path-to-your-key-pem&amp;gt; -L 8080:localhost:8080 -N ubuntu@ec2-&amp;lt;your-ec2-ipv4-address-separated-by-hyphens&amp;gt;.compute-1.amazonaws.com -o &lt;span class=&#34;nv&#34;&gt;ExitOnForwardFailure&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;yes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Open the localhost browser: &lt;a href=&#34;http://localhost:8080/&#34;&gt;http://localhost:8080/&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
+&lt;p&gt;Run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make port-forward &lt;span class=&#34;nv&#34;&gt;IP_ADDRESS&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;0.0.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Open the localhost browser: &lt;a href=&#34;http://localhost:8080/&#34;&gt;http://localhost:8080/&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;aws-cloud9&#34;&gt;AWS Cloud9&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make port-forward
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Open the Cloud9 browser and go to: &lt;a href=&#34;http://localhost:8080/&#34;&gt;http://localhost:8080/&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;log-in-with-dex&#34;&gt;Log in with Dex&lt;/h2&gt;
+&lt;p&gt;Enter your Username and Password to start working in the Kubeflow UI.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Manual Deployment Guide</title>
+      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;deploying-kubeflow-on-eks&#34;&gt;Deploying Kubeflow on EKS&lt;/h1&gt;
+&lt;p&gt;This guide describes how to deploy Kubeflow on AWS EKS. This vanilla version has minimal changes to the upstream Kubeflow manifests.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Be sure that you have satisfied the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/prerequisites/manifest/&#34;&gt;installation prerequisites&lt;/a&gt; before working through this guide.&lt;/p&gt;
+&lt;h3 id=&#34;build-manifests-and-install-kubeflow&#34;&gt;Build Manifests and install Kubeflow&lt;/h3&gt;
+&lt;p&gt;There two options for installing Kubeflow official components and common services with kustomize.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Single-command installation of all components under &lt;code&gt;apps&lt;/code&gt; and &lt;code&gt;common&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Multi-command, individual components installation for &lt;code&gt;apps&lt;/code&gt; and &lt;code&gt;common&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Option 1 targets ease of deployment for end users. &lt;br&gt;
+Option 2 targets customization and ability to pick and choose individual components.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Warning: In both options, we use a default email (&lt;code&gt;user@example.com&lt;/code&gt;) and password (&lt;code&gt;12341234&lt;/code&gt;). For any production Kubeflow deployment, you should change the default password by following &lt;a href=&#34;#change-default-user-password&#34;&gt;the relevant section&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;kubectl apply&lt;/code&gt; commands may fail on the first try. This is inherent in how Kubernetes and &lt;code&gt;kubectl&lt;/code&gt; work (e.g., CR must be created after CRD becomes ready). The solution is to re-run the command until it succeeds. For the single-line command, we have included a bash one-liner to retry the command.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;install-with-a-single-command&#34;&gt;Install with a single command&lt;/h3&gt;
+&lt;p&gt;You can install all Kubeflow official components (residing under &lt;code&gt;apps&lt;/code&gt;) and all common services (residing under &lt;code&gt;common&lt;/code&gt;) using the following command:&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active tab-Command:&#34;
+        id=&#34;tabs-1-0-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-1-0&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Command:&amp;#34;);&#34;
+        aria-controls=&#34;tabs-1-0&#34; aria-selected=&#34;true&#34;&gt;
+        Command:
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link tab-kustomize&#34;
+        id=&#34;tabs-1-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-1-1&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;kustomize&amp;#34;);&#34;
+        aria-controls=&#34;tabs-1-1&#34; aria-selected=&#34;false&#34;&gt;
+        kustomize
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link tab-Helm&#34;
+        id=&#34;tabs-1-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-1-2&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Helm&amp;#34;);&#34;
+        aria-controls=&#34;tabs-1-2&#34; aria-selected=&#34;false&#34;&gt;
+        Helm
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;/ul&gt;
+
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;&lt;div class=&#34;tab-pane fade show active&#34;
+        id=&#34;tabs-1-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-1-0-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-1-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-1-1-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;!&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;kustomize&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;build&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;deployments&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;vanilla&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;kubectl&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;apply&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;-f&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;do&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Retrying to apply resources&amp;#34;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;sleep&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;done&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-1-2&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-1-2-tab&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;[TODO&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;@&lt;span class=&#34;l&#34;&gt;jsitu777]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;Once everything is installed successfully, you can access the Kubeflow Central Dashboard &lt;a href=&#34;#connect-to-your-kubeflow-cluster&#34;&gt;by logging into your cluster&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can now start experimenting and running your end-to-end ML workflows with Kubeflow!&lt;/p&gt;
+&lt;h3 id=&#34;install-individual-components&#34;&gt;Install individual components&lt;/h3&gt;
+&lt;p&gt;This section lists an installation command for each official Kubeflow component (under &lt;code&gt;apps&lt;/code&gt;) and each common service (under &lt;code&gt;common&lt;/code&gt;) using just &lt;code&gt;kubectl&lt;/code&gt; and &lt;code&gt;kustomize&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you run all of the following commands, the end result is the same as installing everything through the &lt;a href=&#34;#install-with-a-single-command&#34;&gt;single command installation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The purpose of this section is to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Provide a description of each component and insight on how it gets installed.&lt;/li&gt;
+&lt;li&gt;Enable the user or distribution owner to pick and choose only the components they need.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;cert-manager&#34;&gt;cert-manager&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;cert-manager&lt;/code&gt; is used by many Kubeflow components to provide certificates for
+admission webhooks.&lt;/p&gt;
+&lt;p&gt;Install &lt;code&gt;cert-manager&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/cert-manager/cert-manager/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/cert-manager/kubeflow-issuer/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;istio&#34;&gt;Istio&lt;/h4&gt;
+&lt;p&gt;Istio is used by many Kubeflow components to secure their traffic, enforce
+network authorization, and implement routing policies.&lt;/p&gt;
+&lt;p&gt;Install Istio:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-crds/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/istio-namespace/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build awsconfigs/common/istio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;dex&#34;&gt;Dex&lt;/h4&gt;
+&lt;p&gt;Dex is an OpenID Connect Identity (OIDC) with multiple authentication backends. In this default installation, it includes a static user with the email &lt;code&gt;user@example.com&lt;/code&gt;. By default, the user&amp;rsquo;s password is &lt;code&gt;12341234&lt;/code&gt;. For any production Kubeflow deployment, you should change the default password by following the steps in &lt;a href=&#34;#change-default-user-password&#34;&gt;Change default user password&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Install Dex:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/dex/overlays/istio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;oidc-authservice&#34;&gt;OIDC AuthService&lt;/h4&gt;
+&lt;p&gt;The OIDC AuthService extends your Istio Ingress-Gateway capabilities to be able to function as an OIDC client:&lt;/p&gt;
+&lt;p&gt;Install OIDC AuthService:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/oidc-authservice/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;knative&#34;&gt;Knative&lt;/h4&gt;
+&lt;p&gt;Knative is used by the KServe official Kubeflow component.&lt;/p&gt;
+&lt;p&gt;Install Knative Serving:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/knative/knative-serving/overlays/gateways &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/cluster-local-gateway/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Optionally, you can install Knative Eventing, which can be used for inference request logging.&lt;/p&gt;
+&lt;p&gt;Install Knative Eventing:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/knative/knative-eventing/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;kubeflow-namespace&#34;&gt;Kubeflow namespace&lt;/h4&gt;
+&lt;p&gt;Create the namespace where the Kubeflow components will live. This namespace
+is named &lt;code&gt;kubeflow&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Install the &lt;code&gt;kubeflow&lt;/code&gt; namespace:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/kubeflow-namespace/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;kubeflow-roles&#34;&gt;Kubeflow Roles&lt;/h4&gt;
+&lt;p&gt;Create the Kubeflow ClusterRoles &lt;code&gt;kubeflow-view&lt;/code&gt;, &lt;code&gt;kubeflow-edit&lt;/code&gt;, and
+&lt;code&gt;kubeflow-admin&lt;/code&gt;. Kubeflow components aggregate permissions to these
+ClusterRoles.&lt;/p&gt;
+&lt;p&gt;Install Kubeflow roles:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/kubeflow-roles/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;kubeflow-istio-resources&#34;&gt;Kubeflow Istio Resources&lt;/h4&gt;
+&lt;p&gt;Create the Istio resources needed by Kubeflow. This kustomization currently
+creates an Istio Gateway named &lt;code&gt;kubeflow-gateway&lt;/code&gt; in the &lt;code&gt;kubeflow&lt;/code&gt; namespace.
+If you want to install with your own Istio, then you need this kustomization as
+well.&lt;/p&gt;
+&lt;p&gt;Install Istio resources:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/istio-1-14/kubeflow-istio-resources/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;kubeflow-pipelines&#34;&gt;Kubeflow Pipelines&lt;/h4&gt;
+&lt;p&gt;Install the &lt;a href=&#34;https://www.kubeflow.org/docs/components/pipelines/multi-user/&#34;&gt;Multi-User Kubeflow Pipelines&lt;/a&gt; official Kubeflow component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/pipeline/upstream/env/cert-manager/platform-agnostic-multi-user &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;kserve&#34;&gt;KServe&lt;/h4&gt;
+&lt;p&gt;Kubeflow 1.6 and above only supports KServe
+KFServing was rebranded to KServe.&lt;/p&gt;
+&lt;p&gt;Install the KServe component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build awsconfigs/apps/kserve &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install the Models web app:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/contrib/kserve/models-web-app/overlays/kubeflow &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;katib&#34;&gt;Katib&lt;/h4&gt;
+&lt;p&gt;Install the Katib official Kubeflow component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/katib/upstream/installs/katib-with-kubeflow &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;central-dashboard&#34;&gt;Central Dashboard&lt;/h4&gt;
+&lt;p&gt;Install the Central Dashboard official Kubeflow component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/centraldashboard/upstream/overlays/kserve &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;admission-webhook&#34;&gt;Admission Webhook&lt;/h4&gt;
+&lt;p&gt;Install the Admission Webhook for PodDefaults:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/admission-webhook/upstream/overlays/cert-manager &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;notebooks&#34;&gt;Notebooks&lt;/h4&gt;
+&lt;p&gt;Install the Notebook Controller official Kubeflow component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/jupyter/notebook-controller/upstream/overlays/kubeflow &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install the Jupyter Web App official Kubeflow component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build awsconfigs/apps/jupyter-web-app &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;profiles-and-kubeflow-access-management-kfam&#34;&gt;Profiles and Kubeflow Access-Management (KFAM)&lt;/h4&gt;
+&lt;p&gt;Install the Profile controller and the Kubeflow Access-Management (KFAM) official Kubeflow
+components:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/profiles/upstream/overlays/kubeflow &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;volumes-web-app&#34;&gt;Volumes Web App&lt;/h4&gt;
+&lt;p&gt;Install the Volumes Web App official Kubeflow component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/volumes-web-app/upstream/overlays/istio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;tensorboard&#34;&gt;Tensorboard&lt;/h4&gt;
+&lt;p&gt;Install the Tensorboards Web App official Kubeflow component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/tensorboard/tensorboards-web-app/upstream/overlays/istio &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install the Tensorboard controller official Kubeflow component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/tensorboard/tensorboard-controller/upstream/overlays/kubeflow &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;training-operator&#34;&gt;Training Operator&lt;/h4&gt;
+&lt;p&gt;Install the Training Operator official Kubeflow component:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/apps/training-operator/upstream/overlays/kubeflow &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;aws-telemetry&#34;&gt;AWS Telemetry&lt;/h4&gt;
+&lt;p&gt;Install the AWS Kubeflow telemetry component. This is an optional component. See &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/about/usage-tracking/&#34;&gt;Usage Tracking&lt;/a&gt; for more information&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build awsconfigs/common/aws-telemetry &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;user-namespace&#34;&gt;User namespace&lt;/h4&gt;
+&lt;p&gt;Finally, create a new namespace for the the default user. In this example, the namespace is called &lt;code&gt;kubeflow-user-example-com&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build upstream/common/user-namespace/base &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;connect-to-your-kubeflow-cluster&#34;&gt;Connect to your Kubeflow cluster&lt;/h3&gt;
+&lt;p&gt;After installation, it will take some time for all Pods to become ready. Make sure all Pods are ready before trying to connect, otherwise you might get unexpected errors. To check that all Kubeflow-related Pods are ready, use the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n cert-manager
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n istio-system
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n auth
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n knative-eventing
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n knative-serving
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n kubeflow
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -n kubeflow-user-example-com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;port-forward&#34;&gt;Port-Forward&lt;/h4&gt;
+&lt;p&gt;To get started quickly, you can access Kubeflow via port-forward. Run the following to port-forward Istio&amp;rsquo;s Ingress-Gateway to local port &lt;code&gt;8080&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After running the command, you can access the Kubeflow Central Dashboard by doing the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open your browser and visit &lt;code&gt;http://localhost:8080&lt;/code&gt;. You should get the Dex login screen.&lt;/li&gt;
+&lt;li&gt;Login with the default user&amp;rsquo;s credential. The default email address is &lt;code&gt;user@example.com&lt;/code&gt; and the default password is &lt;code&gt;12341234&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;exposing-kubeflow-over-load-balancer&#34;&gt;Exposing Kubeflow over Load Balancer&lt;/h4&gt;
+&lt;p&gt;In order to expose Kubeflow over an external address, you can set up AWS Application Load Balancer. Please take a look at the &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/add-ons/load-balancer/guide/&#34;&gt;Load Balancer guide&lt;/a&gt; to set it up.&lt;/p&gt;
+&lt;h3 id=&#34;change-default-user-password&#34;&gt;Change default user password&lt;/h3&gt;
+&lt;p&gt;For security reasons, we do not recommend using the default password for the default Kubeflow user when installing in security-sensitive environments. Instead, you should define your own password before deploying. To define a password for the default user:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pick a password for the default user, with email &lt;code&gt;user@example.com&lt;/code&gt;, and hash it using &lt;code&gt;bcrypt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python3 -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;from passlib.hash import bcrypt; import getpass; print(bcrypt.using(rounds=12, ident=&amp;#34;2y&amp;#34;).hash(getpass.getpass()))&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit &lt;code&gt;upstream/common/dex/base/config-map.yaml&lt;/code&gt; and fill the relevant field with the hash of the password you chose:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nn&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;staticPasswords&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;email&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;user@example.com&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;hash&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;enter the generated hash here&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;uninstall-kubeflow-on-aws&#34;&gt;Uninstall Kubeflow on AWS&lt;/h3&gt;
+&lt;p&gt;First, delete all existing Kubeflow profiles.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get profile
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl delete profile --all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can delete a Kubeflow deployment by running the &lt;code&gt;kubectl delete&lt;/code&gt; command on the manifest according to the deployment option you chose. For example, to delete a vanilla installation, run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kustomize build deployments/vanilla/ &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; kubectl delete -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command assumes that you have the repository in the same state as when you installed Kubeflow.&lt;/p&gt;
+&lt;p&gt;Cleanup steps for specific deployment options can be found in their respective &lt;a href=&#34;https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/&#34;&gt;installation guides&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: This will not delete your Amazon EKS cluster.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;optional-delete-amazon-eks-cluster&#34;&gt;(Optional) Delete Amazon EKS cluster&lt;/h3&gt;
+&lt;p&gt;If you created a dedicated Amazon EKS cluster for Kubeflow using &lt;code&gt;eksctl&lt;/code&gt;, you can delete it with the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;eksctl delete cluster --region &lt;span class=&#34;nv&#34;&gt;$CLUSTER_REGION&lt;/span&gt; --name &lt;span class=&#34;nv&#34;&gt;$CLUSTER_NAME&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Note: It is possible that parts of the CloudFormation deletion will fail depending upon modifications made post-creation. In that case, manually delete the eks-xxx role in IAM, then the ALB, the EKS target groups, and the subnets of that particular cluster. Then, retry the command to delete the nodegroups and the cluster.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For more detailed information on deletion options, see &lt;a href=&#34;https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html&#34;&gt;Deleting an Amazon EKS cluster&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Terraform Deployment Guide</title>
+      <link>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide-terraform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://awslabs.github.io/kubeflow-manifests/main/docs/deployment/vanilla/guide-terraform/</guid>
+      <description>
+        
+        
+        &lt;p&gt;To deploy Kubeflow on AWS using Terraform, [TO-DO: @rrrkharse]&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
